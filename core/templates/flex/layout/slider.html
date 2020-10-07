@@ -1,0 +1,93 @@
+<!-- main image slider container -->
+<section class="slide-window">
+    <div class="slide-wrapper" style="width:300%;">
+        <div class="slide">
+            <div class="slide-caption text-center">
+                <h2 class="text-uppercase">
+                    {% if setting.first_slider_title %}
+                        {{ setting.first_slider_title }}
+                    {% else %}
+                        Welcome to <span>Embed Systems</span>
+                    {% endif %}
+                </h2>
+                <p class="my-4">
+                    {% if setting.first_slider_content %}
+                        {{ setting.first_slider_content }}
+                    {% else %}
+                        Embed systems is a leading technological solution company dealing in
+                        Installation, service and repairs of industrial controllers, solar power
+                        systems and CCTV surveillance system.
+                    {% endif %}
+                </p>
+                <div class="read">
+                    <a href="#welcome">Read More
+                        <span class="btn ml-2">
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="slide slide2">
+            <div class="slide-caption text-center">
+                <h3 class="text-uppercase">
+                    {% if setting.second_slider_title %}
+                        {{ setting.second_slider_title }}
+                    {% else %}
+                        Industrial <span>Installation</span>
+                    {% endif %}
+                </h3>
+                <p class="my-4">
+                    {% if setting.second_slider_content %}
+                        {{ setting.second_slider_content }}
+                    {% else %}
+                        Our control systems are powered with high end microprocessors to
+                        deliver flawless performance at top speed.
+                    {% endif %}
+                </p>
+                <div class="read">
+                    <a href="{% url 'about' %}">Read More
+                        <span class="btn ml-2">
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="slide slide3">
+            <div class="slide-caption text-center">
+                <h3 class="text-uppercase">
+                    {% if setting.third_slider_title %}
+                        {{ setting.third_slider_title }}
+                    {% else %}
+                        CCTV Camera <span> Installation</span>
+                    {% endif %}
+                </h3>
+                <p class="my-4">
+                    {% if setting.third_slider_content %}
+                        {{ setting.third_slider_content }}
+                    {% else %}
+                        Our Installation service (solar power systems and CCTV camera) is handled
+                        by experienced engineers.
+                    {% endif %}
+                </p>
+                <div class="read">
+                    <a href="{% url 'about' %}">Read More
+                        <span class="btn ml-2"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-controller">
+        <div class="slide-control-left">
+            <div class="slide-control-line"></div>
+            <div class="slide-control-line"></div>
+        </div>
+        <div class="slide-control-right">
+            <div class="slide-control-line"></div>
+            <div class="slide-control-line"></div>
+        </div>
+    </div>
+</section>
+<!-- end of main image slider container -->

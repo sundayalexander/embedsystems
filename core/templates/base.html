@@ -1,0 +1,168 @@
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<head><title>{% block title %}Embed Systems{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static "css/core.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/elements.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/custom.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "modules/noty/animate.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "modules/noty/noty.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "modules/noty/metroui.css" %}">
+    {% if site.setting.favicon %}
+        <link rel="shortcut icon" type="image/{{ site.setting.favicon.name|get_extension }}"
+              href="{{ site.setting.favicon.url }}">
+    {% endif %}
+
+    {#    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>#}
+    {#    <script>tinymce.init({selector: 'textarea'});</script>#}
+    <script src="{% static "js/assets/jquery.js" %}"></script>
+</head>
+
+<body class="{% if request.resolver_match.url_name in "index,contact"|split:"," %}dark-hero{% endif %} smooth-transition">
+<div class="container-fluid">
+    <header>
+        <div class="container">
+            <a href="{% url 'index' %}" class="brand">
+                {% if site.setting.logo_default %}
+                    <img src="{{ site.setting.logo_default.url }}" alt="" class="brand-default">
+                {% endif %}
+                {% if site.setting.logo_light %}
+                    <img src="{{ site.setting.logo_light.url }}" alt="" class="brand-light">
+                {% endif %}
+            </a>
+            <div class="nav-btn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="nav-container {% if request.resolver_match.url_name in "index,contact"|split:"," %}top{% else %}boxed{% endif %}">
+                <div class="container">
+                    {% if request.resolver_match.url_name in "index,contact"|split:"," %}
+                        <div class="row">
+                        <div class="col-md-3">
+                            <a href="javascript:void(0);" class="brand">
+                                {% if site.setting.logo_light %}
+                                    <img alt=""
+                                         src="{{ site.setting.logo_light.url }}">
+                                {% endif %}
+                            </a>
+                            <p class="mt-lg">{{ site.setting.summary }}</p>
+                            <ul class="social">
+                                {% for social in site.setting.socials.all %}
+                                    <li><a href="{{ social.url }}" target="_blank">
+                                        <i class="{{ social.icon }}"></i>
+                                    </a></li>
+                                {% endfor %}
+                                {#                                <li><a href="#">#}
+                                {#                                    <div class="fa fa-twitter"></div>#}
+                                {#                                </a></li>#}
+                            </ul>
+                        </div>
+                        <div class="col-md-9">
+                    {% endif %}
+                    <div class="inner">
+                        {% if request.resolver_match.url_name not in "index,contact"|split:"," %}
+                            <div class="title">Menu</div>
+                        {% endif %}
+                        <ul class="navigation-items">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                            <li><a href="{% url 'services' %}">Services</a></li>
+                            <li><a href="{% url 'blog' %}">Blog</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                    </div>
+                    {% if request.resolver_match.url_name in "index,contact"|split:"," %}</div>{% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+</div>
+<div class="container-fluid">
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="javascript:void(0);" class="brand">
+                        {% if site.setting.logo_default %}
+                            <img alt=""
+                                 src="{{ site.setting.logo_default.url }}">
+                        {% endif %}
+                    </a>
+                    <p class="mt-sm">{{ site.setting.summary }}</p>
+                </div>
+
+                <div class="col-md-4 col-md-offset-1"><h4>Recent Work</h4>
+                    <div class="img-blocks">
+                        {% for project in recent_projects %}
+                            <a href="{% url 'portfolio' slug=project.slug %}">
+                                <img alt="" src="{{ project.image.url }}">
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+{#                <div class="col-md-4"><h4>Blogs</h4>#}
+                {#                    <ul class="list-links">#}
+                {#                        <li><a href="https://titan.themevillain.com/pages/blog/single-a.html">We are blogging about#}
+                {#                            design <span class='date'>28/06/2016</span></a></li>#}
+                {#                        <li><a href="https://titan.themevillain.com/pages/blog/single-b.html">What design looks like in#}
+                {#                            2030 <span class='date'>23/06/2016</span></a></li>#}
+                {#                        <li><a href="https://titan.themevillain.com/pages/blog/single-c.html">Everything is design <span#}
+                {#                                class='date'>20/06/2016</span></a></li>#}
+                {#                    </ul>#}
+                {#                </div>#}
+            </div>
+    </footer>
+</div>
+<div class="container-fluid bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"><span class="copyright">Embed Systems &copy; {% now "Y" %}</span></div>
+            <div class="col-md-8">
+                <ul class="pull-right">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static "js/assets/bootstrap.js" %}"></script>
+<script src="{% static "js/assets/imagesloaded.pkgd.min.js" %}"></script>
+<script src="{% static "js/assets/validation.js" %}"></script>
+<script src="{% static "js/assets/packery.pkgd.min.js" %}"></script>
+<script src="{% static "js/assets/velocity.min.js" %}"></script>
+<script src="{% static "modules/titan-slider/titan-slider.js" %}"></script>
+<script src="{% static "modules/tera-lightbox/tera-lightbox.js" %}"></script>
+<script src="{% static "js/assets/animsition.js" %}"></script>
+<script src="{% static "modules/noty/noty.min.js" %}"></script>
+<script src="{% static "js/functions.js" %}"></script>
+
+<script type="text/javascript">
+    {% if messages %}
+        {% for message in messages %}
+            {% with message.tags|split:" " as tags %}
+                notify('{{ tags.1 }}', "{{ message|escapejs }}", {{ tags.0 }});
+            {% endwith %}
+        {% endfor %}
+    {% endif %}
+</script>
+
+{% block script %}
+{% endblock %}
+</body>
+</html>

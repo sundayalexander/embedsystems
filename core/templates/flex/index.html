@@ -1,0 +1,211 @@
+{% extends 'flex/layout/base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
+    <!-- main image slider container -->
+    {% include 'flex/layout/slider.html' %}
+    <!-- end of main image slider container -->
+
+    <!-- welcome -->
+    <section class="Welcome py-5" id="welcome">
+        <div class="container py-sm-5">
+            <div class="welcome-grids row">
+                <div class="col-lg-6 mb-lg-0 mb-5">
+                    <h3 class="mt-lg-4">Embed Systems</h3>
+                    {% if setting.summary %}
+                        {% for p in setting.summary|split %}
+                            <p class="my-4">{{ p }}</p>
+                        {% endfor %}
+                    {% else %}
+                        <p class="my-4">
+                            We are a leading technological solution company dealing in Installation,
+                            service and repairs of industrial controllers, solar power systems and
+                            CCTV surveillance system.
+                        </p>
+                        <p class="mb-4">
+                            We design and install our systems with high performance equipment at unbeatable cost.
+                            Our Installation service (solar power systems and CCTV camera) is
+                            handled by experienced engineers. Our control systems are powered with high end
+                            microprocessors to deliver flawless performance at top speed.
+                        </p>
+                    {% endif %}
+
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 pr-1 welcome-image">
+                    <img src="{% static 'flex/images/a1.jpg' %}" class="img-fluid" alt="Embed Systems"/>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 pl-1 welcome-image">
+                    <img src="{% static 'flex/images/a2.jpg' %}" class="img-fluid" alt="About Embed Systems"/>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- welcome -->
+
+    <!-- welcome bottom -->
+    <section class="Welcome-bottom">
+        <div class="bs-slider-overlay">
+            <div class="container">
+                <div class="welcome-bottom-grids row">
+
+                    <!-- Counter -->
+                    <div class="col-lg-6 p-sm-5 p-4 welcome_left Features-bottom">
+                        <div class="layer p-sm-5 p-4 welcome_left_inner agile-info">
+                            <div class="agileits_w3layouts_about_counter_left w3-agile-grid">
+                                <div class="countericon">
+                                    <span class="fab fa-lightbulb" aria-hidden="true"></span>
+                                    <h3>Solar Power <br/> Installation</h3>
+                                </div>
+                                <div class="counterinfo agile-info">
+                                    <p class="counter">436</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="mt-sm-5 mt-3 agileits_w3layouts_about_counter_left w3-agile-grid">
+                                <div class="countericon">
+                                    <span class="fab fa-industry" aria-hidden="true"></span>
+                                    <h3>Industrial <br/> installation </h3>
+                                </div>
+                                <div class="counterinfo agile-info">
+                                    <p class="counter">147</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="mt-sm-5 mt-3 agileits_w3layouts_about_counter_left w3-agile-grid">
+                                <div class="countericon">
+                                    <span class="fas fa-camera" aria-hidden="true"></span>
+                                    <h3>CCTV camera <br>installation</h3>
+                                </div>
+                                <div class="counterinfo agile-info">
+                                    <p class="counter">218</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //Counter -->
+                    <div class="col-lg-6 p-sm-5 p-4 mt-lg-5 mt-0 welcome_bottom_right">
+                        <h3>What we do</h3>
+                        {% if setting.service_text %}
+                            {% for p in setting.service_text|split %}
+                                <p class="my-4">{{ p }}</p>
+                            {% endfor %}
+                        {% else %}
+                            <p class="my-4">
+                                We specialize in the Installation, service and repairs of industrial
+                                controllers, solar power systems and CCTV surveillance system.
+                            </p>
+                            <p class="my-4">
+                                At Embed Systems, quality is the backbone of our design and materialization.
+                                We follow strict quality policies and standards to produce consistent
+                                installation service and installation.We also offer our customers
+                                long-term service support on all of our products.
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //welcome bottom -->
+
+    <!-- Projects -->
+    <div class="Projects py-5">
+        <div class="container py-sm-4">
+            <div class="heading pb-4">
+                <h3 class="heading mb-2 text-center">
+                    <span>Our Executed</span> Projects </h3>
+                <p class="para mb-5 text-center">
+                    At Embed Systems, We follow strict quality policies and standards to
+                    produce consistent installation service and installation.
+                </p>
+            </div>
+            <div class="row inner_w3l_agile_grids-1">
+                {% if projects %}
+                    {% for project in projects %}
+                        {% if project.image %}
+                            <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                                <a href="{{ project.image.url }}" class="swipebox">
+                                    <img src="{{ project.image.url }}" class="img-responsive" alt="{{ project.title }}">
+                                    <div class="textbox">
+                                        <h4>{{ project.title|title }}</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                {% else %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m1.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m1.jpg' %}" class="img-responsive"
+                                 alt="CCTV CAMERA INSTALLATION">
+                            <div class="textbox">
+                                <h4>CCTV CAMERA INSTALLATION</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m2.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m2.jpg' %}" class="img-responsive" alt="SOLAR SYSTEM INSTALLATION">
+                            <div class="textbox">
+                                <h4>SOLAR SYSTEM INSTALLATION</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m4.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m4.jpg' %}" class="img-responsive" alt="SOLAR SYSTEM INSTALLATION">
+                            <div class="textbox">
+                                <h4>SOLAR SYSTEM INSTALLATION</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m5.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m5.jpg' %}" class="img-responsive"
+                                 alt="MICRO CONTROLLER INSTALLATION">
+                            <div class="textbox">
+                                <h4>MICRO CONTROLLER INSTALLATION</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m6.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m6.jpg' %}" class="img-responsive" alt="MICRO CONTROLLER INSTALLATION">
+                            <div class="textbox">
+                                <h4>MICRO CONTROLLER</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m7.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m7.jpg' %}" class="img-responsive" alt="SOLAR SYSTEMS">
+                            <div class="textbox">
+                                <h4>SOLAR SYSTEMS</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m8.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m8.jpg' %}" class="img-responsive" alt="MICRO CONTROLLER">
+                            <div class="textbox">
+                                <h4>MICRO CONTROLLER</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m10.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m10.jpg' %}" class="img-responsive" alt="CONTROLLER BOARD">
+                            <div class="textbox">
+                                <h4>CONTROLLER BOARD</h4>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- //Projects -->
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section>
+        <div class="container mt-xl mb-lg">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="lg">About Us</h1>
+                    {#                    <p>When it comes to choosing an antiaging eye cream, the possibilities are endless. The choices#}
+                    {#                        range store brands.</p>#}
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="bordered p-lg">
+                        <h2>{{ site.setting.about_page_name}}</h2>
+                        <h4 class="mb-md">{{ site.setting.about_page_position }}</h4>
+                        {{ site.setting.about_page_text|safe }}
+                    </div>
+                </div>
+                <div class="col-md-6 content">
+                    {% if site.setting.about_page_photo %}
+                        <img src="{{ site.setting.about_page_photo.url }}" class="mb-md">
+                    {% endif %}
+                    {% if site.setting.about_page_quote %}
+                        <blockquote>{{ site.setting.about_page_quote}}</blockquote>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

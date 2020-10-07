@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="hero small">
+        <div class="vbottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12"><h1>{{ project.title }}</h1></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <img alt="" src="{{ project.image }}">
+    </section>
+
+    <section class="content">
+        <div class="container">
+            {{ project.content|safe }}
+        </div>
+    </section>
+{% endblock %}

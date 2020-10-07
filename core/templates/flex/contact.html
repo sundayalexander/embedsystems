@@ -1,0 +1,84 @@
+{% extends 'flex/layout/base.html' %}
+{% load static %}
+{% block title %}Contact Embed Systems{% endblock %}
+{% block content %}
+    <!-- inner page banner -->
+    <section class="inner-page-banner">
+        <div class="page-heading text-center">
+            <h2>Contact Us</h2>
+            <span class="section_1-breadcrumbs">
+                <a href="{% url 'index' %}"><i class="fa fa-home home_1"></i> Home</a>
+                <span>/ Contact Us</span></span>
+        </div>
+    </section>
+    <!-- //inner page banner -->
+
+    <!-- contact -->
+    <section class="contact py-5">
+        <div class="container">
+            <div class="heading pb-4">
+                <h3 class="heading mb-2 text-center"><span>Contact </span> Us </h3>
+                <p class="para mb-5 text-center">
+                    Get in touch with us today!
+                </p>
+            </div>
+            <div class="row contact-agileinfo">
+                <div class="col-md-7 contact-right">
+                    <form action="{% url 'contact' %}" method="post" id="contact-form">
+                        {% csrf_token %}
+                        <input type="text" name="Name" placeholder="Name" required="">
+                        <input type="email" class="email" name="Email" placeholder="Email" required="">
+                        <input type="text" name="Phone no" placeholder="Phone" required="">
+                        <textarea name="Message" placeholder="Message" required=""></textarea>
+                        <input type="submit" value="Submit" class="btn btn-primary">
+
+                    </form>
+                </div>
+                <div class="col-md-5 mt-md-0 mt-5 contact-left">
+                    <div class="address">
+                        <h5>Address:</h5>
+                        <p><span class="fa fa-home"></span>
+                            {% if setting.address %}
+                            {{ setting.address }}
+                        {% else %}
+                            Suite 234/236 Sura complex, <br/>Victoria Island Lagos.
+                        {% endif %}
+                        </p>
+                    </div>
+                    <div class="address address-mdl">
+                        <h5>Phones:</h5>
+                        <p><span class="fa fa-phone"></span>
+                            {% if setting.number %}{{ setting.number }}{% else %}+2347032584436{% endif %}
+                        </p>
+                        <p><span class="fa fa-mobile"></span>
+                           {% if setting.number %}{{ setting.number }}{% else %}+2348038447519{% endif %}
+                        </p>
+                    </div>
+                    <div class="address">
+                        <h5>Email:</h5>
+                        <p><span class="fa fa-envelope"></span>
+                             <a href="mailto:{% if setting.email %}{{ setting.email }}{% else %}info@embedsystems.com.ng{% endif %}">
+                            {% if setting.email %}{{ setting.email }}{% else %}info@embedsystems.com.ng{% endif %}
+                        </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{#    <section class="agileits-w3layouts-map">#}
+{#        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555"#}
+{#                allowfullscreen></iframe>#}
+{#    </section>#}
+    <!-- //contact -->
+
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#contact-form').submit(function (e) {
+            e.preventDefault();
+
+        });
+    </script>
+{% endblock %}

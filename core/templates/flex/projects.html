@@ -1,0 +1,112 @@
+{% extends 'flex/layout/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- inner page banner -->
+    <section class="inner-page-banner">
+        <div class="page-heading text-center">
+            <h2>Projects Page</h2>
+            <span class="section_1-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i> Home</a> <span>/ Projects page</span></span>
+        </div>
+    </section>
+    <!-- //inner page banner -->
+    <!--start-Projects-->
+    <div class="Projects py-5">
+        <div class="container py-sm-4">
+            <div class="heading pb-4">
+                <h3 class="heading mb-2 text-center">
+                    <span>Our </span> Projects </h3>
+                <p class="para mb-5 text-center">
+                    List of our executed projects.
+                </p>
+            </div>
+            <div class="row inner_w3l_agile_grids-1">
+                {% if projects %}
+                    {% for project in projects %}
+                        {% if project.image %}
+                            <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                                <a href="{{ project.image.url }}" class="swipebox">
+                                    <img src="{{ project.image.url }}" class="img-responsive" alt="{{ project.title }}">
+                                    <div class="textbox">
+                                        <h4>{{ project.title|title }}</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                {% else %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m1.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m1.jpg' %}" class="img-responsive"
+                                 alt="CCTV CAMERA INSTALLATION">
+                            <div class="textbox">
+                                <h4>CCTV CAMERA INSTALLATION</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m2.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m2.jpg' %}" class="img-responsive"
+                                 alt="SOLAR SYSTEM INSTALLATION">
+                            <div class="textbox">
+                                <h4>SOLAR SYSTEM INSTALLATION</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m4.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m4.jpg' %}" class="img-responsive"
+                                 alt="SOLAR SYSTEM INSTALLATION">
+                            <div class="textbox">
+                                <h4>SOLAR SYSTEM INSTALLATION</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m5.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m5.jpg' %}" class="img-responsive"
+                                 alt="MICRO CONTROLLER INSTALLATION">
+                            <div class="textbox">
+                                <h4>MICRO CONTROLLER INSTALLATION</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m6.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m6.jpg' %}" class="img-responsive"
+                                 alt="MICRO CONTROLLER INSTALLATION">
+                            <div class="textbox">
+                                <h4>MICRO CONTROLLER</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m7.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m7.jpg' %}" class="img-responsive" alt="SOLAR SYSTEMS">
+                            <div class="textbox">
+                                <h4>SOLAR SYSTEMS</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m8.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m8.jpg' %}" class="img-responsive" alt="MICRO CONTROLLER">
+                            <div class="textbox">
+                                <h4>MICRO CONTROLLER</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 Projects-grid Projects1">
+                        <a href="{% static 'flex/images/m10.jpg' %}" class="swipebox">
+                            <img src="{% static 'flex/images/m10.jpg' %}" class="img-responsive" alt="CONTROLLER BOARD">
+                            <div class="textbox">
+                                <h4>CONTROLLER BOARD</h4>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!--//Projects-->
+{% endblock %}

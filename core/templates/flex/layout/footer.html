@@ -1,0 +1,117 @@
+<!-- footer -->
+<footer class="footer py-5">
+    <div class="container py-sm-4">
+        <div class="row">
+            <div class="col-lg-2  col-md-6 footv3-left mt-md-0 mt-5">
+                <h3 class="mb-4 pb-3 w3f_title">Navigation</h3>
+                <ul class="list-agileits">
+                    <li>
+                        <a href="{% url 'index' %}">
+                            Home
+                        </a>
+                    </li>
+                    <li class="my-2">
+                        <a href="{% url 'about' %}">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="my-2">
+                        <a href="{% url 'projects' %}">
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 mt-lg-0 mt-5">
+                <h3 class="mb-4 pb-3 w3f_title">Contact Us</h3>
+                <div class="fv3-contact">
+                    <span class="fas fa-envelope-open mr-2"></span>
+                    <p>
+                        <a href="mailto:
+                                {% if setting.email %}{{ setting.email }}{% else %}info@embedsystems.com.ng{% endif %}">
+                            {% if setting.email %}{{ setting.email }}{% else %}info@embedsystems.com.ng{% endif %}
+                        </a>
+                    </p>
+                </div>
+                <div class="fv3-contact my-3">
+                    <span class="fas fa-phone-volume mr-2"></span>
+                    <p>
+                        <a href="tel:{% if setting.number %}{{ setting.number }}{% else %}+2347032584436{% endif %}">
+                            {% if setting.number %}{{ setting.number }}{% else %}+2347032584436{% endif %}
+                        </a>
+                    </p>
+                </div>
+                <div class="fv3-contact">
+                    <span class="fas fa-home mr-2"></span>
+                    <p>
+                        {% if setting.address %}
+                            {{ setting.address }}
+                        {% else %}
+                            Suite 234/236 Sura complex, <br/>Victoria Island Lagos.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footerv2-w3ls mt-lg-0 mt-5">
+                <h3 class="mb-4 w3f_title pb-3">Get In Touch</h3>
+                <p>You can follow us on social media</p>
+                <ul class="social-iconsv2 agileinfo mt-4">
+                    {% if setting.socials.count > 0 %}
+                        {% for social in setting.socials %}
+                            <li>
+                                <a href="{{ social.url }}" target="_blank">
+                                    {% if social.social_media_type == 0 %}
+                                        <i class="fab fa-instagram"></i>
+                                    {% elif  social.social_media_type == 1 %}
+                                        <i class="fab fa-facebook-f"></i>
+                                    {% elif  social.social_media_type == 2 %}
+                                        <i class="fab fa-twitter"></i>
+                                    {% elif  social.social_media_type == 3 %}
+                                        <i class="fab fa-youtube-play"></i>
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- //footer bottom -->
+</footer>
+<!-- //footer -->
+
+<!-- copyright -->
+<div class="cpy-right text-center">
+    <p>
+        © {% now "Y" %} Embed Systems. All rights reserved.
+    </p>
+</div>
+<!-- //copyright -->

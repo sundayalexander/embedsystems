@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Embed Systems{% endblock %}</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="{% block keywords %}Embed Systems, integrated circuit, IOT, Internet of Things,
+    micro controllers, micro-controllers, chips, processor, SOLAR SYSTEM INSTALLATION{% endblock %}"/>
+    <meta name="theme-color" content="#150039ff">
+    <link rel="icon" href="{% static 'flex/images/favicon.png' %}"/>
+    <link rel="apple-touch-icon" href="{% static 'flex/images/favicon.png' %}"/>
+    <meta name="msapplication-TileImage" content="{% static 'flex/images/favicon.png' %}"/>
+    <meta name="description"
+          content="{% block description %}Embed systems is a leading technological
+          solution company dealing in Installation,
+          service and repairs of industrial controllers, solar power systems
+          and CCTV surveillance system.{% endblock %}">
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--// Meta tag Keywords -->
+
+    {% block css %}
+        <!-- banner slider css -->
+        <link href="{% static 'flex/css/minimal-slider.css' %}" rel='stylesheet' type='text/css'/>
+        <!-- //banner slider css -->
+
+        <!-- css files -->
+        <link rel="stylesheet" href="{% static 'flex/css/bootstrap.css' %}"> <!-- Bootstrap-Core-CSS -->
+        <link href="{% static 'flex/css/style6.css' %}" rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet" href="{% static 'flex/css/style.css' %}" type="text/css" media="all"/> <!-- Style-CSS -->
+        <link rel="stylesheet" href="{% static 'flex/css/fontawesome-all.css' %}"> <!-- Font-Awesome-Icons-CSS -->
+        <!-- //css files -->
+        <!-- Projects swipebox css-->
+        <link rel="stylesheet" href="{% static 'flex/css/swipebox.css' %}">
+    {% endblock %}
+    <!--web font-->
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
+          rel="stylesheet">
+    <!--//web font-->
+
+</head>
+
+<body>
+{% block body %}
+
+    {#  TEMPLATE HEADER  #}
+    {% include 'flex/layout/header.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    {#  TEMPLATE FOOTER  #}
+    {% include 'flex/layout/footer.html' %}
+
+    {% block js %}
+        <!-- js -->
+        <script src="{% static 'flex/js/jquery-2.1.4.min.js' %}"></script>
+        <script src="{% static 'flex/js/bootstrap.js' %}"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+        <!-- //js -->
+
+        <!-- search overlay -->
+        <script src="{% static 'flex/js/modernizr-2.6.2.min.js' %}"></script>
+        <!-- //search overlay -->
+
+        <!--search jQuery-->
+        {#        <script src="{% static 'flex/js/classie-search.js' %}"></script>#}
+        {#        <script src="{% static 'flex/js/demo1-search.js' %}"></script>#}
+        <!--//search jQuery-->
+
+        <!-- dropdown nav -->
+        <script>
+            $(document).ready(function () {
+                $(".dropdown").hover(
+                    function () {
+                        $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                        $(this).toggleClass('open');
+                    },
+                    function () {
+                        $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                        $(this).toggleClass('open');
+                    }
+                );
+            });
+        </script>
+        <!-- //dropdown nav -->
+
+        <!-- Projects swipebox -->
+        <script src="{% static 'flex/js/jquery.swipebox.min.js' %}"></script>
+        <script>
+            jQuery(function ($) {
+                $(".swipebox").swipebox();
+            });
+        </script>
+        <!-- //Projects swipebox-->
+
+        <!-- banner slider js -->
+        <script src="{% static 'flex/js/minimal-slider.js' %}"></script>
+        <!-- //banner slider js -->
+
+        <!-- Stats-Number-Scroller-Animation-JavaScript -->
+        <script src="{% static 'flex/js/waypoints.min.js' %}"></script>
+        <script src="{% static 'flex/js/counterup.min.js' %}"></script>
+        <script>
+            jQuery(document).ready(function ($) {
+                $('.counter').counterUp({
+                    delay: 100,
+                    time: 1000
+                });
+            });
+        </script>
+        <!-- //Stats-Number-Scroller-Animation-JavaScript -->
+
+        <!-- start-smoth-scrolling -->
+        <script src="{% static 'flex/js/SmoothScroll.min.js' %}"></script>
+        <script src="{% static 'flex/js/move-top.js' %}"></script>
+        <script src="{% static 'flex/js/easing.js' %}"></script>
+        <script>
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                });
+            });
+        </script>
+        <!-- here stars scrolling icon -->
+        <script>
+            $(document).ready(function () {
+                /*
+                    var defaults = {
+                    containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear'
+                    };
+                */
+
+                $().UItoTop({easingType: 'easeOutQuart'});
+
+            });
+        </script>
+    {% endblock %}
+{% endblock %}
+</body>
+</html>

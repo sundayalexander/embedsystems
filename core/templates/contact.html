@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Us | Embed Systems{% endblock %}
+{% block content %}
+    <section class="dark pt-xl pm-xl">
+        <div style="background-image: url({% static "images/portfolio/cover_03.jpg" %})" class="bg faded-more"></div>
+        <div class="container mt-xl mb-lg">
+            <div class="row">
+                <div class="col-md-6"><h1>Contact</h1>
+{#                    <p>There is such a lot of talk going around about branding, but what exactly is your brand and how#}
+{#                        do you use it to help you reach more people and market your products or services? Your brand is#}
+{#                        the core of your marketing, the central theme around your products and services.</p>#}
+                    <div class="row mt-md">
+                        <div class="col-md-4">
+                            <h4>Address</h4>
+                            <p>{{ site.setting.address }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+{{ site.setting.number }}">{{ site.setting.number }}</a></p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Email</h4>
+                            <p><a href="mailto:{{ site.setting.email }}">{{ site.setting.email }}</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-md-offset-2">
+                    <form id="form" action="https://titan.themevillain.com/php/mail.php" class="row contact-form mt-md">
+                        <div class="col-md-12"><input placeholder="Name" type="text" name="name"
+                                                      class="form-control"><input placeholder="E-mail" type="text"
+                                                                                  name="email"
+                                                                                  class="form-control"><input
+                                placeholder="Phone" type="text" name="phone" class="form-control"><textarea
+                                placeholder="Message" name="message" class="form-control"></textarea>
+                            <div class="error">Please fill out your e-mail address</div>
+                            <button id="send" type="submit" class="btn btn-secondary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'flex/layout/base.html' %}
+{% load static %}
+{% block keywords %}
+    About embed systems, Wifi module, Lan module, electronics, micro controllers, mother board, integrated
+    circuit, solar power systems and CCTV camera installation
+{% endblock %}
+{% block description %}We design and install our systems with high performance
+    equipment at unbeatable cost. Our Installation service
+    (solar power systems and CCTV camera) is handled by experienced engineers.
+    Our control systems are powered with high end microprocessors to deliver
+    flawless performance at top speed.{% endblock %}
+{% block title %}About Embed Systems{% endblock %}
+{% block content %}
+    <!-- inner page banner -->
+    <section class="inner-page-banner">
+        <div class="page-heading text-center">
+            <h2>About Us</h2>
+            <span class="section_1-breadcrumbs">
+                <a href="{% url 'index' %}"><i class="fa fa-home home_1"></i> Home</a>
+                <span>/ About Us</span></span>
+        </div>
+    </section>
+    <!-- //inner page banner -->
+
+    <!-- welcome -->
+    <section class="Welcome py-5">
+        <div class="container py-sm-3">
+            <div class="heading pb-4">
+                <h3 class="heading mb-2 text-center"><span>Who we are </span></h3>
+                <p class="para mb-5 text-center">
+                    We also offer our customers long-term service support on all of our products.
+                </p>
+            </div>
+            <div class="welcome-grids row">
+                <div class="col-lg-6 mb-lg-0 mb-5">
+                    {% if setting.about_page_text %}
+                        {{ setting.about_page_text|safe }}
+                    {% else %}
+                        <p class="my-4">
+                            Embed systems is a leading technological solution company
+                            dealing in Installation, service and repairs of industrial controllers,
+                            solar power systems and CCTV surveillance system.
+                        </p>
+                        <p class="mb-4">
+                            At Embed Systems, quality is the backbone of our design and materialization. We follow
+                            strict quality policies and standards to produce consistent installation service and
+                            installation.
+                        </p>
+                    {% endif %}
+                </div>
+                <div class="col-lg-6 col-md-4 col-12 pr-2 welcome-image">
+                    <img src="{% static 'flex/images/m3.jpg' %}" class="img-fluid"
+                         alt="about embed systems, who we are"/>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- welcome -->
+
+    <!-- what we do -->
+    <section class="Welcome py-5">
+        <div class="container py-sm-3">
+            <div class="heading pb-4">
+                <h3 class="heading mb-2 text-center"><span>What </span> We Do </h3>
+                <p class="para mb-5 text-center">
+                    Quality is the backbone of our design and materialization.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 about-img">
+                    <img src="{% static 'flex/images/3.jpg' %}" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-6 about-right mt-lg-0 mt-5">
+                    <h4>Our core services.</h4>
+                    <p class="mb-4">
+                        We specialize in the Installation, service and repairs of industrial controllers,
+                        solar power systems and CCTV surveillance system.
+                    </p>
+                    <p class="mb-4">
+                        We design and install our systems with high performance equipment at unbeatable cost.
+                        Our Installation service (solar power systems and CCTV camera) is
+                        handled by experienced engineers. Our control systems are powered with high end
+                        microprocessors to deliver flawless performance at top speed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- what we do -->
+{% endblock %}

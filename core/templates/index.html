@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="hero dark">
+        {% if site.setting.index_page_background %}
+            <div style="background-image: url('{{ site.setting.index_page_background.url }}')"
+                 class="bg"></div>
+        {% endif %}
+        <div class="container"><h1>Creative.<br>Digital.<br>Innovative.</h1></div>
+        <div class="vbottom mb-lg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6>&nbsp;</h6>
+                        <h2>{{ site.setting.name }}</h2>
+                    </div>
+                    {#                    <div class="col-md-6 small-text">#}
+                    {#                        <p class="mt-xs">#}
+                    {#                            Lorem ipsum dolor sit amet, consectetur adipiscing#}
+                    {#                            elit. Phasellus faucibus, lorem eget vehicula cursus, eros nisi sollicitudin. Curabitur a#}
+                    {#                            neque#}
+                    {#                            diam. Phasellus faucibus, lorem eget vehicula.#}
+                    {#                        </p>#}
+                    {#                    </div>#}
+                    {#                    <div class="col-md-2"><a href="#" class="pull-right mt-sm btn-primary btn">View Project</a></div>#}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

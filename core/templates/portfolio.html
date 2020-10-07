@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Our Portfolio | Embed Systems{% endblock %}
+{% block content %}
+    <section>
+        <div class="container mt-lg">
+            <div class="row flex">
+                <div class="col-md-6"><h2>Projects</h2>
+                    <p>{{ site.setting.portfolio_page_text }}</p></div>
+                <div class="col-md-6">
+                    <div class="vbottom">
+                        <div class="filter-container">
+                            <button class="pull-right btn btn-secondary mr-md">Filter</button>
+                            <ul data-target="#portfolio" class="filters pull-right">
+                                <li>
+                                    <button data-toggle=".project" class="filter active">All</button>
+                                </li>
+                                {% for category in categories %}
+                                    <li>
+                                        <button data-toggle=".{{ category.slug }}"
+                                                class="filter">{{ category.name }}</button>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="portfolio" class="item-grid col-3">
+                {% for project in projects %}
+                    <a href="{% url 'portfolio' slug=project.slug %}" class="item project {{ project.category.slug }}">
+                        <div class="thumb">
+                            <img alt=""
+                                 src="{{ project.image.url }}">
+                        </div>
+                        <div class="caption"><h3>{{ project.title }}</h3>
+                            <div class="tags">
+                                <div class="tag">{{ project.category }}</div>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+                <div class="item-sizer"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
